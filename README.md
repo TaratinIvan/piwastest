@@ -3,7 +3,7 @@ Windows
 1. Перейдите по [ссылке](https://github.com/Matsuridayo/nekoray/releases "ссылке")
 2. В последнем СТАБИЛЬНОМ релизе во вкладке Assets найти архив под нужную систему, в моём случае `nekoray-3.26-2023-12-09-windows64.zip `
 3. Скачайте и разархивируйте архив в удобную для вас директорию
-4. ОБЯЗАТЕЛЬНО удалите goodbyedpi встроенным скриптом, если пользовались и удалите папку
+4. ОБЯЗАТЕЛЬНО удалите goodbyedpi встроенным скриптом, если пользовались, и удалите папку
 5. Запустите `nekoray.exe` от имени администратора, в качестве ядра выберите x-ray
 6. Скопируйте ссылку, выданную Мишей
 7. В окне программы нажмите `Ctrl+V`
@@ -11,19 +11,19 @@ Windows
 9. Перейдите в `Настройки` -> `Настройки маршрутов` -> `Базовые маршруты`
 10. Вставьте список адресов, как показано ниже. (Вы можете добавлять нужные вам по аналогии) Выставьте `Otbound по-умолчанию` `bypass` Нажмите `OK` 
 ```
-  x.com
-  instagram.com
-  regexp:.*rutracker.*
-  twitter.com
-  regexp:.*twimg.*
-  chatgpt.com
-  regexp:.*openai.*
-  claude.ai
-  spotify.com
-  regexp:.*youtube.*
-  regexp:.*youtu\.be.*
-  regexp:.*googlevideo.*
-  regexp:.*ytimg.*
+x.com
+instagram.com
+regexp:.*rutracker.*
+twitter.com
+regexp:.*twimg.*
+chatgpt.com
+regexp:.*openai.*
+claude.ai
+spotify.com
+regexp:.*youtube.*
+regexp:.*youtu\.be.*
+regexp:.*googlevideo.*
+regexp:.*ytimg.*
 ```
 ![](https://files.catbox.moe/8v16u4.png)
 11. `ПКМ` -> `Запустить` Наслаждайтесь!!! :tada::tada::tada:<br>
