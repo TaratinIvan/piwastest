@@ -38,3 +38,27 @@ Android
 5. В разделе `Прямые` выставьте сайты, которые не должны проксироваться: `regexp:.*\.ru,regexp:.:*vk.com,geoip.ru`
 6. В `Настройки` в пункте `Прокси для выбранных приложений` выберите приложения, в которых вам НУЖЕН обход. В основном это браузер, твиттер, инста и ютуб.
 7. Не забудьте запустить службу и добавить иконку приложения в шторку сверху.
+
+# Known Issues
+
+## Microsoft Store (Windows)
+
+Для корректной работы Microsoft Store требуется добавить соответствующий AppContainer в исключения из [замыкания на себя](https://ab57.ru/cmdlist/checknetisolation.html).
+
+Добавление Microsoft Store в исключения:
+
+```powershell
+Get-ChildItem -Path "HKCU:\Software\Classes\Local Settings\Software\Microsoft\Windows\CurrentVersion\AppContainer\Mappings" | 
+Get-ItemProperty -Name DisplayName | 
+Where-Object { $_.DisplayName -like "Microsoft Store" } | 
+ForEach-Object { CheckNetIsolation LoopbackExempt -a -p="$($_.PSChildName)" }
+```
+
+Rollback (удаление из исключений):
+
+```powershell
+Get-ChildItem -Path "HKCU:\Software\Classes\Local Settings\Software\Microsoft\Windows\CurrentVersion\AppContainer\Mappings" | 
+Get-ItemProperty -Name DisplayName | 
+Where-Object { $_.DisplayName -like "Microsoft Store" } | 
+ForEach-Object { CheckNetIsolation LoopbackExempt -d -p="$($_.PSChildName)" }
+```
