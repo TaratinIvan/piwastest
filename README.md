@@ -62,3 +62,23 @@ Get-ItemProperty -Name DisplayName |
 Where-Object { $_.DisplayName -like "Microsoft Store" } | 
 ForEach-Object { CheckNetIsolation LoopbackExempt -d -p="$($_.PSChildName)" }
 ```
+
+## WSL (Windows)
+
+Может возникнуть ошибка
+
+`wsl: A localhost proxy configuration was detected but not mirrored into WSL. WSL in NAT mode does not support localhost proxies.`
+
+Сделайте следующее:
+
+1. Откройте файл по пути `%USERPROFILE%\.wslconfig` (Если файла нет, то перейдите в %USERPROFILE% через пуск и создайте без расширений)
+2. Добавьте в него текст
+```yaml
+[experimental]
+autoMemoryReclaim=gradual  # gradual  | dropcache | disabled
+networkingMode=mirrored
+dnsTunneling=true
+firewall=true
+autoProxy=true
+```
+3. В терминале сделайте `wsl --shutdown` и снова запустите
